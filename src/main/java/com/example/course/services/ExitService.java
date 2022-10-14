@@ -22,8 +22,8 @@ public class ExitService {
     }
 
     public ExitEntity findById(Integer id) {
-        Optional<ExitRepository> exit = exitRepository.findById(id);
-        return (ExitEntity) exit.get();
+        Optional<ExitEntity> exit = exitRepository.findById(id);
+        return  exit.get();
     }
 
     public void delete(Integer id) {

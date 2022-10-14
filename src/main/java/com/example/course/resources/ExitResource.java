@@ -11,7 +11,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/exit")
+@RequestMapping(value = "/exits")
 public class ExitResource {
 
     @Autowired
