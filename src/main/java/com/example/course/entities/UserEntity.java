@@ -2,27 +2,29 @@ package com.example.course.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-
 import java.io.Serializable;
 import java.util.Objects;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+
 public class UserEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
+
     private String name;
+
     private String email;
+
     private String phone;
+
     private String password;
 
 
@@ -79,3 +81,4 @@ public class UserEntity implements Serializable {
         return Objects.hash(getId());
     }
 }
+

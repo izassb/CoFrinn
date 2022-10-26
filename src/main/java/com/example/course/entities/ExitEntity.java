@@ -3,16 +3,14 @@ package com.example.course.entities;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
 @EqualsAndHashCode
-@Getter @Setter
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -21,17 +19,23 @@ public class ExitEntity implements Serializable {
 
     @javax.persistence.Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Integer Id;
 
+    @Column(name = "date")
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDate date;
 
+    @Column(name = "description")
     private String description;
 
+    @Column(name = "type")
     private String type;
 
+    @Column(name = "category")
     private String category;
 
+    @Column(name = "value")
     private double value;
 
 

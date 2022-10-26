@@ -8,8 +8,12 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
+
+import javax.transaction.Transactional;
 
 @Service
+@CrossOrigin("*")
 public class UserService {
     @Autowired
     private UserRepository userRepository;
@@ -26,6 +30,7 @@ public class UserService {
     public void delete(Long id) {
         this.userRepository.deleteById(id);
     }
+
 
     public UserEntity insert(UserEntity object) {
         return userRepository.save(object);
