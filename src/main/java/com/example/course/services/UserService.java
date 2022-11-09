@@ -35,4 +35,10 @@ public class UserService {
     public UserEntity insert(UserEntity object) {
         return userRepository.save(object);
     }
+
+    public UserEntity loginUser(String user, String password) throws ServiceExc {
+
+        UserEntity Userlogin = userRepository.buscarLogin(user, password);
+        return Userlogin;
+    }
 }

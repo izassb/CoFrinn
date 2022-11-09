@@ -1,14 +1,20 @@
 package com.example.course.entities;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.hibernate.Hibernate;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
-@EqualsAndHashCode
 @Getter
 @Setter
 @AllArgsConstructor
@@ -40,11 +46,15 @@ public class ExitEntity implements Serializable {
 
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (!(obj instanceof ExitEntity)) return false;
-        ExitEntity exit = (ExitEntity) obj;
-        return Objects.equals(getId(), exit.getId());
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        ExitEntity that = (ExitEntity) o;
+        return Id != null && Objects.equals(Id, that.Id);
     }
 
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 }
