@@ -1,85 +1,84 @@
 package com.example.course.entities;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import java.io.Serializable;
 import java.util.Objects;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
+
 public class UserEntity implements Serializable {
-  private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
 
-  private String name;
-  private String email;
-  private String phone;
-  private String password;
 
-  public UserEntity() {}
+    private String name;
 
-  public UserEntity(Long id, String name, String email, String phone, String password) {
-    this.id = id;
-    this.name = name;
-    this.email = email;
-    this.phone = phone;
-    this.password = password;
-  }
+    private String email;
 
-  public Long getId() {
-    return id;
-  }
+    private String phone;
 
-  public void setId(Long id) {
-    this.id = id;
-  }
+    private String password;
 
-  public String getName() {
-    return name;
-  }
 
-  public void setName(String name) {
-    this.name = name;
-  }
+    public Long getId() {
+        return id;
+    }
 
-  public String getEmail() {
-    return email;
-  }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-  public void setEmail(String email) {
-    this.email = email;
-  }
+    public String getName() {
+        return name;
+    }
 
-  public String getPhone() {
-    return phone;
-  }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-  public void setPhone(String phone) {
-    this.phone = phone;
-  }
+    public String getEmail() {
+        return email;
+    }
 
-  public String getPassword() {
-    return password;
-  }
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-  public void setPassword(String password) {
-    this.password = password;
-  }
+    public String getPhone() {
+        return phone;
+    }
 
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (!(o instanceof UserEntity)) return false;
-    UserEntity user = (UserEntity) o;
-    return Objects.equals(getId(), user.getId());
-  }
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(getId());
-  }
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof UserEntity)) return false;
+        UserEntity user = (UserEntity) o;
+        return Objects.equals(getId(), user.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId());
+    }
 }
+
