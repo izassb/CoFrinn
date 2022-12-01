@@ -1,15 +1,18 @@
-package com.example.myfinances.model.service.implementation;
+package com.example.course.model.service.implementation;
 
+import java.util.Objects;
 import java.util.Optional;
 
-import com.example.myfinances.model.entity.Usuario;
-import com.example.myfinances.model.exception.BusinessRuleException;
-import com.example.myfinances.model.exception.ErroAutentificacaoException;
-import com.example.myfinances.model.repository.UsuarioRepository;
-import com.example.myfinances.model.service.UsuarioService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.example.course.model.entities.Usuario;
+import com.example.course.model.exception.BusinessRuleException;
+import com.example.course.model.exception.ErroAutentificacaoException;
+import com.example.course.model.repository.UsuarioRepository;
+import com.example.course.model.service.UsuarioService;
 
 
 @Service
@@ -55,4 +58,10 @@ public class UsuarioServiceImpl implements UsuarioService {
                 .orElseThrow(() -> new BusinessRuleException("Usuário não encontrado"));
     }
 
+    @Override
+    @Transactional
+    public Usuario atualizar(Usuario usuario) {
+        Objects.requireNonNull(usuario.getId());
+        return repository.save(usuario);
+    }
 }

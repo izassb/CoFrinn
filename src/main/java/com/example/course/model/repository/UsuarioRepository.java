@@ -1,9 +1,11 @@
-package com.example.myfinances.model.repository;
+package com.example.course.model.repository;
 
 import java.util.Optional;
 
-import com.example.myfinances.model.entity.Usuario;
+
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.example.course.model.entities.Usuario;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     Optional<Usuario> findByEmail(String email);

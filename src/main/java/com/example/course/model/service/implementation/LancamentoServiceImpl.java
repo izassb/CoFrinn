@@ -1,19 +1,21 @@
-package com.example.myfinances.model.service.implementation;
+package com.example.course.model.service.implementation;
 
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Objects;
 
-import com.example.myfinances.model.entity.Lancamento;
-import com.example.myfinances.model.exception.BusinessRuleException;
-import com.example.myfinances.model.repository.LancamentoRepository;
-import com.example.myfinances.model.service.LancamentoService;
+
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.ExampleMatcher.StringMatcher;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.course.model.entities.Lancamento;
+import com.example.course.model.enumeration.TipoLancamento;
+import com.example.course.model.exception.BusinessRuleException;
+import com.example.course.model.repository.LancamentoRepository;
+import com.example.course.model.service.LancamentoService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -76,6 +78,39 @@ public class LancamentoServiceImpl implements LancamentoService {
         return repository.findById(id)
                 .orElseThrow( () -> new BusinessRuleException("Lançamento não encontrado"));
 
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public BigDecimal obterSaldoPorUsuario(Long id) {
+        BigDecimal receitas = repository.obterSaldoPorTipoLancamentoEUsuario(id, TipoLancamento.RECEITA);
+        BigDecimal despesas = repository.obterSaldoPorTipoLancamentoEUsuario(id, TipoLancamento.DESPESA);
+
+        if(receitas == null) receitas = BigDecimal.ZERO;
+
+        if(despesas == null) despesas = BigDecimal.ZERO;
+
+        return receitas.subtract(despesas);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public BigDecimal obterSaldoDespesaPorUsuario(Long id){
+        BigDecimal despesas = repository.obterSaldoPorTipoLancamentoEUsuario(id, TipoLancamento.DESPESA);
+
+        if(despesas == null) despesas = BigDecimal.ZERO;
+
+        return despesas;
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public BigDecimal obterSaldoReceitaPorUsuario(Long id){
+        BigDecimal receitas = repository.obterSaldoPorTipoLancamentoEUsuario(id, TipoLancamento.RECEITA);
+
+        if(receitas == null) receitas = BigDecimal.ZERO;
+
+        return receitas;
     }
 
 }

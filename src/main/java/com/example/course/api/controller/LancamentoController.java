@@ -1,14 +1,8 @@
-package com.example.myfinances.api.controller;
+package com.example.course.api.controller;
 
 import java.util.List;
 
-import com.example.myfinances.api.dto.LancamentoDTO;
-import com.example.myfinances.model.entity.Lancamento;
-import com.example.myfinances.model.enumeration.TipoLancamento;
-import com.example.myfinances.model.exception.BusinessRuleException;
-import com.example.myfinances.model.repository.LancamentoRepository;
-import com.example.myfinances.model.service.LancamentoService;
-import com.example.myfinances.model.service.UsuarioService;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,6 +14,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.example.course.api.dto.LancamentoDTO;
+import com.example.course.model.entities.Lancamento;
+import com.example.course.model.enumeration.TipoLancamento;
+import com.example.course.model.exception.BusinessRuleException;
+import com.example.course.model.repository.LancamentoRepository;
+import com.example.course.model.service.LancamentoService;
+import com.example.course.model.service.UsuarioService;
 
 import lombok.RequiredArgsConstructor;
 

@@ -1,4 +1,4 @@
-package com.example.myfinances.model.enumeration;
+package com.example.course.model.enumeration;
 
 public enum TipoLancamento {
     RECEITA,

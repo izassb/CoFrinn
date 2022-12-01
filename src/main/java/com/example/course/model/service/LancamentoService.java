@@ -1,9 +1,9 @@
-package com.example.myfinances.model.service;
-
-import com.example.myfinances.model.entity.Lancamento;
+package com.example.course.model.service;
 
 import java.math.BigDecimal;
 import java.util.List;
+
+import com.example.course.model.entities.Lancamento;
 
 public interface LancamentoService {
 
@@ -18,4 +18,10 @@ public interface LancamentoService {
     void validar(Lancamento lancamento);
 
     Lancamento obterPorId(Long id);
+
+    BigDecimal obterSaldoPorUsuario(Long id);
+
+    BigDecimal obterSaldoDespesaPorUsuario(Long id);
+
+    BigDecimal obterSaldoReceitaPorUsuario(Long id);
 }

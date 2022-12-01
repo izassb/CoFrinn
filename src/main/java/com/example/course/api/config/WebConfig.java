@@ -1,4 +1,4 @@
-package com.example.myfinances.api.config;
+package com.example.course.api.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

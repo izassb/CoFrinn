@@ -1,4 +1,4 @@
-package com.example.course.repositories.entities;
+package com.example.course.model.entities;
 
 import java.math.BigDecimal;
 
@@ -13,8 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
-import com.example.myfinances.model.enumeration.TipoLancamento;
+import com.example.course.model.enumeration.TipoLancamento;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

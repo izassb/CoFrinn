@@ -1,10 +1,11 @@
-package com.example.myfinances.model.repository;
+package com.example.course.model.repository;
 
-import com.example.myfinances.model.entity.Lancamento;
-import com.example.myfinances.model.enumeration.TipoLancamento;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+
+import com.example.course.model.entities.Lancamento;
+import com.example.course.model.enumeration.TipoLancamento;
 
 import java.math.BigDecimal;
 
