@@ -114,7 +114,7 @@ public class UsuarioController {
         return ResponseEntity.ok(users);
     }
 
-    @GetMapping("/{id]")
+    @GetMapping("/{id}")
     public ResponseEntity get(@PathVariable Long id) {
         try {
             return ResponseEntity.ok(service.obterPorId(id));
